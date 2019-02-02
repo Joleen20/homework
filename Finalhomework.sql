@@ -75,8 +75,10 @@ name VARCHAR(20),
 address VARCHAR(30),;
 
 -- 6a. Use `JOIN` to display the first and last names, as well as the address, of each staff member. Use the tables `staff` and `address`:
-Select first_name, last_name, address, staff
-Where join;
+SELECT staff.first_name, staff.last_name, address.address
+FROM staff AS staff
+INNER JOIN address AS address
+ON (staff.address_id = address.address_id);
 -- 6b. Use `JOIN` to display the total amount rung up by each staff member in August of 2005. Use tables `staff` and `payment`.
 
 -- 6c. List each film and the number of actors who are listed for that film. Use tables `film_actor` and `film`. Use inner join.
@@ -125,7 +127,7 @@ ORDER BY rental_date DESC;
 -- 7f. Write a query to display how much business, in dollars, each store brought in.
 SELECT store_id
 FROM store
-JOIN payment_id, amount, payment_date
+INNER JOIN payment_id, amount, payment_date ON payment
 FROM payment;
 
 -- 7g. Write a query to display for each store its store ID, city, and country.
