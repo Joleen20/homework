@@ -89,14 +89,14 @@ From inventory;
 
 -- 6e. Using the tables `payment` and `customer` and the `JOIN` command, list the total paid by each customer. List the customers alphabetically by last name:
 SELECT total_paid
-From payment and customer
+FROM payment and customer
 ORDER by last_name ASC;
 
 
 --  7a. The music of Queen and Kris Kristofferson have seen an unlikely resurgence. As an unintended consequence, films starting with the letters `K` and `Q` have also soared in popularity. Use subqueries to display the titles of movies starting with the letters `K` and `Q` whose language is English.
 SELECT title
 FROM film
-WHERE title starts with 'K' or 'Q' and original_language_id = english;
+WHERE title start with 'K' or 'Q' and original_language_id = english;
 
 -- 7b. Use subqueries to display all actors who appear in the film `Alone Trip`.
 SELECT actor_id, film_id
