@@ -31,26 +31,26 @@ From country
 Where country IN ("Afghanistan", "Bangladesh", "China");
 
 -- 3a. You want to keep a description of each actor. You don't think you will be performing queries on a description, so create a column in the table `actor` named `description` and use the data type `BLOB` (Make sure to research the type `BLOB`, as the difference between it and `VARCHAR` are significant).
-ALTER Table actor ADD column description_new blob;
+ALTER Table actor ADD column description blob;
 
 
 -- 3b. Very quickly you realize that entering descriptions for each actor is too much effort. Delete the `description` column.
-Alter Table actor drop column description_new;
+Alter Table actor drop column description;
 
 -- 4a. List the last names of actors, as well as how many actors have that last name.
 SELECT Count(last_name)
 From actor;
 
-SELECT actor_id, last_name, first_name
-FROM actor
+(SELECT actor_id, last_name, first_name
+FROM actor)
 Order by last_name is first;
 
 
 -- 4b. List last names of actors and the number of actors who have that last name, but only for names that are shared by at least two actors
-Select actor_id, last_name, first_name
+SELECT actor_id, last_name, first_name
 FROM actor
 WHERE last_name == last name
-Select Count(last_name)
+Select Count(last_name);
 
 -- 4c. The actor `HARPO WILLIAMS` was accidentally entered in the `actor` table as `GROUCHO WILLIAMS`. Write a query to fix the record.
 SELECT * FROM actor
